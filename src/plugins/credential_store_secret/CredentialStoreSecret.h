@@ -3,10 +3,6 @@
 
 #include "CredentialStore.h"
 
-namespace Secret {
-    struct SecretSchema;
-}
-
 /**
  * @class CredentialStoreSecret
  * @brief Implementation of the credential store using Secret as a backend storage system
@@ -38,10 +34,6 @@ public:
 
     /// Updates the credentials
     void updateCredentials(const WebCredentials &credentials) override;
-
-private:
-    // Defines the schema used to store WebCredentials
-    static const Secret::SecretSchema Schema;
 };
 
 #endif // CREDENTIALSTORESECRET_H
