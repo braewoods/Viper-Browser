@@ -41,7 +41,7 @@ public:
 
 private:
     // Defines the schema used to store WebCredentials
-    static const SecretSchema Schema;
+    static const Secret::SecretSchema Schema;
 };
 
 #endif // CREDENTIALSTORESECRET_H
