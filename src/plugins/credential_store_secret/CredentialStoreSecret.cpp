@@ -2,7 +2,8 @@
 #include "./CredentialStoreSecret.h"
 
 // Schema used to store WebCredentials
-static const SecretSchema Schema = {
+static const SecretSchema Schema =
+{
     CredentialStore_iid,
     SECRET_SCHEMA_NONE,
     {
