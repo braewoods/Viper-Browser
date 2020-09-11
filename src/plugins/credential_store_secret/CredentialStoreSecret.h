@@ -12,6 +12,28 @@ class CredentialStoreSecret : public QObject, public CredentialStore
     Q_OBJECT
     Q_PLUGIN_METADATA(IID CredentialStore_iid FILE "credentialstoresecret.json")
     Q_INTERFACES(CredentialStore)
+
+public:
+    /// Constructor. Opens the wallet backend
+    explicit CredentialStoreSecret();
+
+    /// Credential store destructor, frees resources used by the wallet
+    ~CredentialStoreSecret();
+
+    /// Returns a list of the hosts which have at least one set of credentials in the store
+    std::vector<QString> getHostNames() override;
+
+    /// Adds a set of credentials to the store
+    void addCredentials(const WebCredentials &credentials) override;
+
+    /// Returns a list of the credentials that have been saved for the given url
+    std::vector<WebCredentials> getCredentialsFor(const QUrl &url) override;
+
+    /// Removes the set of credentials from the store
+    void removeCredentials(const WebCredentials &credentials) override;
+
+    /// Updates the credentials
+    void updateCredentials(const WebCredentials &credentials) override;
 };
 
 #endif // CREDENTIALSTORESECRET_H
