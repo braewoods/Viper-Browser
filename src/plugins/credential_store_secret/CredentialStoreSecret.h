@@ -9,6 +9,9 @@
  */
 class CredentialStoreSecret : public QObject, public CredentialStore
 {
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID CredentialStore_iid FILE "credentialstoresecret.json")
+    Q_INTERFACES(CredentialStore)
 };
 
 #endif // CREDENTIALSTORESECRET_H
