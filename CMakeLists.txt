@@ -28,6 +28,10 @@ set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
 set(THREADS_PREFER_PTHREAD_FLAG TRUE)
 find_package(Threads)
 
+if(UNIX AND NOT APPLE)
+  find_package(PkgConfig REQUIRED)
+endif()
+
 # Get Qt
 set(QT_VERSION_MIN "5.9.0")
 find_package(Qt5 ${QT_VERSION_MIN} REQUIRED COMPONENTS Core Concurrent Gui Network PrintSupport Svg QuickWidgets Widgets WebChannel WebEngineWidgets)
@@ -41,7 +45,10 @@ if(UNIX AND NOT APPLE)
     find_package(KF5Wallet)
     if (KF5Wallet_FOUND)
         message("-- Found KWallet")
-        add_definitions(-DUSE_KWALLET)
+    endif()
+    pkg_check_modules(Secret libsecret-1)
+    if (Secret_FOUND)
+        message("-- Found Secret")
     endif()
 endif()
 
