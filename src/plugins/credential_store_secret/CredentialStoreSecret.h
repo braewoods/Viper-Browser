@@ -1,0 +1,6 @@
+#ifndef CREDENTIALSTORESECRET_H
+#define CREDENTIALSTORESECRET_H
+
+#include "CredentialStore.h"
+
+#endif // CREDENTIALSTORESECRET_H
